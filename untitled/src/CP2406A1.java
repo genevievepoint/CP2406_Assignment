@@ -14,7 +14,7 @@ public class CP2406A1 {
         }
     }
 
-    private static void startNewGame(){
+    private static STGame startNewGame(){
         int numPlayers = getNumPlayers();
         STGame game = new STGame(numPlayers);
         game.selectDealer();
@@ -22,7 +22,7 @@ public class CP2406A1 {
 
         game.selectYouAsPlayer();
 
-        STPlayer numPlayer = game.getHumPlayer();
+        STPlayer humPlayer = game.getHumPlayer();
         showPlayer(humPlayer);
 
 //        game.playTheGame();

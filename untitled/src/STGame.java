@@ -38,8 +38,7 @@ public class STGame {
         yourPlayerId = 0;
     }
     public STPlayer getHumPlayer(){
-        //todo: check
-        return players(yourPlayerId);
+        return players[yourPlayerId];
     }
 
     public void playTheGame(){
@@ -54,7 +53,7 @@ public class STGame {
 
             }
 
-            showTurnPlayer();
+//            showTurnPlayer();
 
         }
     }

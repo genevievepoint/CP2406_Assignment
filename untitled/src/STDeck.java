@@ -1,3 +1,4 @@
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +11,6 @@ public class STDeck {
 
     public STDeck(){
         cards = new ArrayList<STCard>();
-
         for (int i = 0; i < NUM_CARDS_INIT; i++) {
              cards.add(new STCard(i));
         }
@@ -22,8 +22,9 @@ public class STDeck {
             int idx = new Random().nextInt(cards.size());
             STCard card = cards.remove(idx);
             ret.add(card);
-            System.out.println("\n cards " + card);
+            System.out.println("\n card= " + card);
         }
         return ret;
     }
+
 }
