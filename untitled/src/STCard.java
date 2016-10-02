@@ -1,5 +1,11 @@
-/**
- * Created by Genevieve on 03-Sep-16.
- */
 public class STCard {
+    private int id;
+
+    public STCard(int id){
+        this.id = id;
+    }
+
+    public String toString(){
+        return "id=" + id;
+    }
 }

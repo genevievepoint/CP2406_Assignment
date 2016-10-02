@@ -1,5 +1,29 @@
-/**
- * Created by Genevieve on 03-Sep-16.
- */
+import java.util.ArrayList;
+import java.util.Random;
+
 public class STDeck {
+    private static final int NUM_CARDS_INIT = 60;
+    private ArrayList<STCard> cards;
+
+
+    //todo: List of all cards
+
+    public STDeck(){
+        cards = new ArrayList<STCard>();
+
+        for (int i = 0; i < NUM_CARDS_INIT; i++) {
+             cards.add(new STCard(i));
+        }
+    }
+
+    public ArrayList<STCard> dealCards(int nCards){
+        ArrayList<STCard> ret = new ArrayList<STCard>();
+        for (int i = 0; i < nCards; i++) {
+            int idx = new Random().nextInt(cards.size());
+            STCard card = cards.remove(idx);
+            ret.add(card);
+            System.out.println("\n cards " + card);
+        }
+        return ret;
+    }
 }
