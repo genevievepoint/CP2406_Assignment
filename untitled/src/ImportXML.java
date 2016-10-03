@@ -1,6 +1,3 @@
-/**
- * Created by Genevieve on 03-Oct-16.
- */
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -23,7 +20,7 @@ public class ImportXML
 
 
     // Read XML file and copy it to card pack
-    public static boolean readCardsDetails(boolean pDisplay)    // MyCard[] pCardsPackMain
+    public static boolean readCardsDetails(boolean pDisplay)    // CardDetails[] pCardsPackMain
     {
         boolean isFileRead = false ;
         String myKey, myString ;
@@ -31,19 +28,19 @@ public class ImportXML
 
         try
         {
-            File myXmlFile = new File( XML_FILE ) ;
+            File myXmlFile = new File(XML_FILE) ;
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance() ;
             DocumentBuilder docBuilder = dbFactory.newDocumentBuilder() ;
             Document myDoc = docBuilder.parse( myXmlFile ) ;
             myDoc.getDocumentElement().normalize() ;
             NodeList nodeList = myDoc.getElementsByTagName( "dict" ) ;
-            //System.out.println("Root : " + myDoc.getDocumentElement().getNodeName());
+//            System.out.println("Root : " + myDoc.getDocumentElement().getNodeName());
 
 
             for (int i=0; i < NUMBER_OF_CARDS; i++ )
             {
                 Node myNode = nodeList.item( i ) ;
-                // " Element : " + myNode.getNodeName()
+//                 " Element : " + myNode.getNodeName()
                 if ( pDisplay )
                 {
                     System.out.println( i+1 );
@@ -54,7 +51,7 @@ public class ImportXML
                     myCardsPackMain[ i+1 ] = new CardDetails() ;
                     Element myElement = ( Element ) myNode ;
 
-                    //System.out.println("Staff id : " + myElement.getAttribute("id"));
+//                    System.out.println("Staff id : " + myElement.getAttribute("id"));
                     int j=0, keyCounter=0, stringCounter=0 ;
                     while ( j < ( myElement.getElementsByTagName( "key" ).getLength() - 1 ) )
                     {
