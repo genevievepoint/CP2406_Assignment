@@ -2,11 +2,13 @@ import jdk.nashorn.internal.parser.JSONParser;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static javax.print.attribute.standard.ReferenceUriSchemesSupported.FILE;
 
@@ -32,7 +34,10 @@ public class STCard {
         return "id=" + id;
     }
 
-
+//    private static CVSUtils loadCards() {
+//        CVSUtils cards = new CVSUtils();
+//        return cards;
+//    }
 
 
 }

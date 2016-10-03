@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 public class CP2406A1 {
 
@@ -13,6 +13,7 @@ public class CP2406A1 {
 
     public static void main(String[] args){
 
+
 //        loadCards();
         showWelcome();
         showMenu();
@@ -22,6 +23,7 @@ public class CP2406A1 {
             game = startNewGame();
             game.playTheGame();
         }
+
     }
 
     private static STGame startNewGame(){
@@ -64,11 +66,5 @@ public class CP2406A1 {
         System.out.println("Welcome to Super Trumps");
     }
 
-//    private static String loadCards(CVSUtils){
-//        loadCards = new CVSUtils();
-//        System.out.println(someLine);
-//
-///
-//    }
 
-}
+    }
