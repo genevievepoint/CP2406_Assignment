@@ -1,10 +1,14 @@
 import javax.smartcardio.Card;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
+
+import static javax.print.attribute.standard.ReferenceUriSchemesSupported.FILE;
 
 public class STDeck {
     private static final int NUM_CARDS_INIT = 60;
     private ArrayList<STCard> cards;
+
 
 
     //todo: List of all cards
@@ -26,5 +30,6 @@ public class STDeck {
         }
         return ret;
     }
+
 
 }

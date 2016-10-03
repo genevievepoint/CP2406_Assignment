@@ -1,9 +1,19 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class CP2406A1 {
 
     private static final int NEW_GAME = 1;
 
+    public CP2406A1() {
+    }
+
     public static void main(String[] args){
 
+//        loadCards();
         showWelcome();
         showMenu();
         int opt = getUserMenuChoice();
@@ -53,4 +63,12 @@ public class CP2406A1 {
     private static void showWelcome(){
         System.out.println("Welcome to Super Trumps");
     }
+
+//    private static String loadCards(CVSUtils){
+//        loadCards = new CVSUtils();
+//        System.out.println(someLine);
+//
+///
+//    }
+
 }
