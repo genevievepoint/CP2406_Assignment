@@ -17,7 +17,6 @@ public class STGame {
 
     public void selectDealer(){
         Random rand = new Random();
-        // TODO: google how to get random int in Java
         int i = new Random().nextInt(2);
         dealerID = 1;
     }
@@ -34,7 +33,6 @@ public class STGame {
         }
     }
     public void selectYouAsPlayer(){
-        //todo: randomly?
         yourPlayerId = 0;
     }
     public STPlayer getHumPlayer(){
@@ -44,17 +42,10 @@ public class STGame {
     public void playTheGame(){
         boolean gameIsOn = true;
         while(gameIsOn) {
-
-
-            //todo: setup players in correct order
+            Player[] players = numPlayers.PLAYERS.values().toArray(new Player[numPlayers.PLAYERS.size()]);
+            String[] playerNames = numPlayers.PLAYERS.keySet().toArray(new String[numPlayers.PLAYERS.size()]);
             for(int idxPlayer = 0; idxPlayer < players.length; idxPlayer++){
-
-                //todo: check humPlayerg
-
             }
-
-//            showTurnPlayer();
-
         }
     }
 }

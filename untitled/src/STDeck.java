@@ -9,10 +9,6 @@ public class STDeck {
     private static final int NUM_CARDS_INIT = 60;
     private ArrayList<STCard> cards;
 
-
-
-    //todo: List of all cards
-
     public STDeck(){
         cards = new ArrayList<STCard>();
         for (int i = 0; i < NUM_CARDS_INIT; i++) {

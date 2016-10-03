@@ -47,7 +47,6 @@ public class CP2406A1 {
         STPlayer humPlayer = game.getHumPlayer();
         showPlayer(humPlayer);
 
-//        game.playTheGame();
         return game;
 
     }
@@ -57,23 +56,39 @@ public class CP2406A1 {
     }
 
     private static int getNumPlayers(){
-        //// TODO: see prac how to get number
-        return 2;
+        System.out.println("How many players> ");
+        Scanner userInput = new Scanner(System.in);
+        int numChoice = userInput.nextInt();
+
+        while (numChoice != 2){
+            else if(numChoice != 3) {
+            }
+            else if(numChoice != 4){
+
+            }
+            else{
+                System.out.println("How many players> ");
+                Scanner userInput = new Scanner(System.in);
+            }
+        }
+        PLAYERS[] = numChoice;
+        return Players;
     }
 
-    private static int getUserMenuChoice(){
-        //// TODO: see prac
-        return 1;
-    }
+//    private static int getUserMenuChoice(){
+//        //// TODO: see prac
+//        return 1;
+//    }
 
     private static int menu(){
+
         System.out.println("1. Start game ");
         System.out.println("2. Instructions ");
         System.out.println("3. Exit ");
-        Scanner scanchoice = new Scanner(System.in);
+        Scanner scanChoice = new Scanner(System.in);
         System.out.println();
         System.out.println("Enter \"1\", \"2\" or \"3\"");
-        int choiceentry = scanchoice.nextInt();
+        int choiceentry = scanChoice.nextInt();
 
         while (choiceentry != 3){
             else if(choiceentry == 1){
@@ -87,10 +102,10 @@ public class CP2406A1 {
             }
             else{
                 System.out.println("Enter \"1\", \"2\" or \"3\"");
-                choiceentry = scanchoice.nextInt();
+                choiceentry = scanChoice.nextInt();
             }
         }
-        return selection;
+        return choiceentry;
     }
 
     private static void showWelcome(){
