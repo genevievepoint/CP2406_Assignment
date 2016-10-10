@@ -7,19 +7,28 @@ import java.util.*;
 public class CP2406A1 {
 
     private static final int NEW_GAME = 1;
+    private static final Object PLAYERS = 3;
 
 
 
     public static void main(String[] args)
     {
-
         showWelcome();
         menu();
         int opt = getUserMenuChoice();
-        STGame game;
-        if (opt == NEW_GAME) {
-            game = startNewGame();
-            game.playTheGame();
+        switch(opt){
+            case 1: {
+                getNumPlayers();
+                startNewGame();
+                break;
+        }
+            case 2 :{
+                //how to play
+                break;
+            }
+            case 3:{
+                System.exit(opt);
+            }
         }
 
         // import XML
@@ -33,12 +42,11 @@ public class CP2406A1 {
         System.out.println(ImportXML.myCardsPackMain[2].title);
 
     }
-//
-//    }
+
+
 
     private static STGame startNewGame(){
-        int numPlayers = getNumPlayers();
-        STGame game = new STGame(numPlayers);
+        STGame game = new STGame(getNumPlayers());
         game.selectDealer();
         game.dealRandomCardsToEachPlayer();
 
@@ -60,45 +68,27 @@ public class CP2406A1 {
         Scanner userInput = new Scanner(System.in);
         int numChoice = userInput.nextInt();
 
-        while (numChoice != 2){
-            else if(numChoice != 3) {
-            }
-            else if(numChoice != 4){
-
-            }
-            else{
+        while (numChoice < 3 || numChoice > 5) {
                 System.out.println("How many players> ");
-                Scanner userInput = new Scanner(System.in);
+                return numChoice;
             }
-        }
-        PLAYERS[] = numChoice;
-        return Players;
+            return numChoice;
     }
 
-//    private static int getUserMenuChoice(){
-//        //// TODO: see prac
-//        return 1;
-//    }
 
-    private static int menu(){
-
-        System.out.println("1. Start game ");
-        System.out.println("2. Instructions ");
-        System.out.println("3. Exit ");
+    private static int getUserMenuChoice(){
         Scanner scanChoice = new Scanner(System.in);
-        System.out.println();
-        System.out.println("Enter \"1\", \"2\" or \"3\"");
         int choiceentry = scanChoice.nextInt();
 
         while (choiceentry != 3){
-            else if(choiceentry == 1){
-                STGame startNewGame;
+            if(choiceentry == 1){
+                return choiceentry;
             }
             else if (choiceentry == 2){
-                //instruction
+                return choiceentry;
             }
             else if (choiceentry == 3){
-                //exit
+                return choiceentry;
             }
             else{
                 System.out.println("Enter \"1\", \"2\" or \"3\"");
@@ -106,6 +96,15 @@ public class CP2406A1 {
             }
         }
         return choiceentry;
+    }
+
+    private static void menu(){
+
+        System.out.println("1. Start game ");
+        System.out.println("2. Instructions ");
+        System.out.println("3. Exit ");
+        System.out.println();
+        System.out.println("Enter \"1\", \"2\" or \"3\"");
     }
 
     private static void showWelcome(){

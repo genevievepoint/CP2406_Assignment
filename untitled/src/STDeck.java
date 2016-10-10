@@ -22,7 +22,7 @@ public class STDeck {
             int idx = new Random().nextInt(cards.size());
             STCard card = cards.remove(idx);
             ret.add(card);
-            System.out.println("\n card= " + card);
+            //System.out.println("\n card= " + card);
         }
         return ret;
     }

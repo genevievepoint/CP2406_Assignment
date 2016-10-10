@@ -1,3 +1,5 @@
+import com.sun.media.jfxmedia.events.PlayerStateEvent;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -38,14 +40,14 @@ public class STGame {
     public STPlayer getHumPlayer(){
         return players[yourPlayerId];
     }
-
+//    private int getNumPlayers(){ return numPlayers}
     public void playTheGame(){
         boolean gameIsOn = true;
-        while(gameIsOn) {
-            Player[] players = numPlayers.PLAYERS.values().toArray(new Player[numPlayers.PLAYERS.size()]);
-            String[] playerNames = numPlayers.PLAYERS.keySet().toArray(new String[numPlayers.PLAYERS.size()]);
-            for(int idxPlayer = 0; idxPlayer < players.length; idxPlayer++){
-            }
+
+//        while(gameIsOn) {
+//            Players players = numPlayers.values().toArray(new Players[numPlayers.size()]);
+//            String[] playerNames = numPlayers.keySet().toArray(new String[numPlayers.size()]);
+//            for(int idxPlayer = 0; idxPlayer < players.length; idxPlayer++){
+//            }
         }
     }
-}
