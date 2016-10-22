@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class STGame {
     private static final int NUM_CARDS_TO_DEAL = 8;
+    public static STGame currGame;
     private ArrayList<STCard> cards;
     private int numPlayers;
     private int dealerID;
@@ -15,6 +16,8 @@ public class STGame {
     public STGame(int numPlayers){
         this.numPlayers = numPlayers;
         deck = new STDeck();
+
+        currGame = this;
     }
 
     public void selectDealer(){
@@ -23,16 +26,22 @@ public class STGame {
         dealerID = 1;
     }
 
+    public boolean validCardToPlay(){
+        return true;
+    }
+
     public void dealRandomCardsToEachPlayer(){
 
         players = new STPlayer[numPlayers];
+//        players = new STPlayer[1];
+
         for (int i = 0; i < numPlayers; i++){
             players[i] = new STPlayer("PlayerId= " + i);
         }
-        for (STPlayer player : players){
-            ArrayList<STCard> cards = deck.dealCards(NUM_CARDS_TO_DEAL);
-            player.setCards(cards);
-        }
+//        for (STPlayer player : players){
+//            ArrayList<STCard> cards = deck.dealCards(NUM_CARDS_TO_DEAL);
+//            player.setCards(cards);
+//        }
     }
     public void selectYouAsPlayer(){
         yourPlayerId = 0;
@@ -50,4 +59,7 @@ public class STGame {
 //            for(int idxPlayer = 0; idxPlayer < players.length; idxPlayer++){
 //            }
         }
+
+    public void validCardToPlay(STCard card) {
     }
+}

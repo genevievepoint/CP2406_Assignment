@@ -39,18 +39,20 @@ public class CP2406A1 {
         isRead = ImportXML.readCardsDetails(true) ;
 
         // displays the input array
-        System.out.println(ImportXML.myCardsPackMain[2].title);
+//        System.out.println(ImportXML.myCardsPackMain[2].title);
 
     }
 
 
 
     private static STGame startNewGame(){
+        int numPlayers = getNumPlayers();
         STGame game = new STGame(getNumPlayers());
         game.selectDealer();
         game.dealRandomCardsToEachPlayer();
 
         game.selectYouAsPlayer();
+
 
         STPlayer humPlayer = game.getHumPlayer();
         showPlayer(humPlayer);
