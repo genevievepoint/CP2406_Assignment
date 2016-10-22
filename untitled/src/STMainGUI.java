@@ -8,7 +8,8 @@ import java.awt.event.ActionListener;
  * Created by Genevieve on 22-Oct-16.
  */
 public class STMainGUI extends JFrame {
-
+ 
+    public static STMainGUI mainUI;
     JLabel question = new JLabel("Number of players");
     Font bigFont = new Font ("Arial", Font.BOLD, 16);
     JTextField answer = new JTextField(10);
@@ -26,13 +27,18 @@ public class STMainGUI extends JFrame {
     }
 
     public STMainGUI(){
-        super("ST Game");
+        super("Super Trumps Game");
+        mainUI = this;
         setSize(WIDTH, HEIGHT);
 //        setLayout(new FlowLayout());
         question.setFont(bigFont);
         greeting.setFont(bigFont);
-        add(question, BorderLayout.NORTH);
-        add(answer, BorderLayout.WEST);
+        JPanel panel1 = new JPanel();
+        panel1.add(question);
+        panel1.add(answer);
+        add(panel1, BorderLayout.NORTH);
+//        add(question, BorderLayout.NORTH);
+//        add(answer, BorderLayout.WEST);
         add(pressMe, BorderLayout.SOUTH);
         pressMe.setToolTipText("I do not have any info, sorry");
         add(greeting, BorderLayout.EAST);
@@ -43,22 +49,16 @@ public class STMainGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ////Todo get number of players from textfield
 
-                game = new STGame(4);
+                game = new STGame(3);
+//                game.startNewGame();
+
+
                 game.selectDealer();
                 game.dealRandomCardsToEachPlayer();
 
                 game.selectYouAsPlayer();
+                reload();
 
-                STPlayer humanPlayer = game.getHumPlayer();
-
-                if (playerView != null){
-                    remove(playerView);
-                }
-
-                playerView = new PlayerView(humanPlayer);
-                //remove item from location
-
-                add(playerView, BorderLayout.CENTER);
 //                How to trigger repaint
 
 
@@ -67,5 +67,16 @@ public class STMainGUI extends JFrame {
         });
 //        pressMe.addActionListener(new MyActivateButton());
 
+    }
+
+    public void reload() {
+        if (playerView != null){
+            remove(playerView);
+        }
+//        todo: add panel currentCardView
+        STPlayer humanPlayer = game.getHumPlayer();
+
+        playerView = new PlayerView(humanPlayer);
+        add(playerView, BorderLayout.CENTER);
     }
 }

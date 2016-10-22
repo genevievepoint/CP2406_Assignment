@@ -9,8 +9,9 @@ public class STDeck {
     private static final int NUM_CARDS_INIT = 60;
     private ArrayList<STCard> cards;
 
-    public STDeck(){
+    STDeck(){
         cards = new ArrayList<STCard>();
+
         for (int i = 0; i < NUM_CARDS_INIT; i++) {
              cards.add(new STCard(i));
         }
@@ -25,6 +26,14 @@ public class STDeck {
             System.out.println("\n card= " + card);
         }
         return ret;
+    }
+
+//    public Card drawFromDeck(){
+//        return cards.remove(0);
+//    }
+
+    public int getTotalCards(){
+        return cards.size();
     }
 
 

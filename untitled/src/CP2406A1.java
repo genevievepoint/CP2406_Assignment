@@ -18,7 +18,6 @@ public class CP2406A1 {
         int opt = getUserMenuChoice();
         switch(opt){
             case 1: {
-                getNumPlayers();
                 startNewGame();
                 break;
         }
@@ -46,7 +45,7 @@ public class CP2406A1 {
 
 
     private static STGame startNewGame(){
-        int numPlayers = getNumPlayers();
+//        int numPlayers = getNumPlayers();
         STGame game = new STGame(getNumPlayers());
         game.selectDealer();
         game.dealRandomCardsToEachPlayer();
@@ -80,24 +79,24 @@ public class CP2406A1 {
 
     private static int getUserMenuChoice(){
         Scanner scanChoice = new Scanner(System.in);
-        int choiceentry = scanChoice.nextInt();
+        int choiceEntry = scanChoice.nextInt();
 
-        while (choiceentry != 3){
-            if(choiceentry == 1){
-                return choiceentry;
+        while (choiceEntry != 3){
+            if(choiceEntry == 1){
+                return choiceEntry;
             }
-            else if (choiceentry == 2){
-                return choiceentry;
+            else if (choiceEntry == 2){
+                return choiceEntry;
             }
-            else if (choiceentry == 3){
-                return choiceentry;
+            else if (choiceEntry == 3){
+                return choiceEntry;
             }
             else{
                 System.out.println("Enter \"1\", \"2\" or \"3\"");
-                choiceentry = scanChoice.nextInt();
+                choiceEntry = scanChoice.nextInt();
             }
         }
-        return choiceentry;
+        return choiceEntry;
     }
 
     private static void menu(){

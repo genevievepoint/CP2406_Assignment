@@ -19,7 +19,7 @@ public class PlayerView extends JPanel{
 
     private void addAllCards(){
 //        ArrayList<STCard> cards = player.getCards();
-        ArrayList<STCard> cards = new ArrayList<STCard>();
+        ArrayList<STCard> cards = new ArrayList<>();
 
         cards.add(new STCard(11, "11"));
         cards.add(new STCard(12, "12"));

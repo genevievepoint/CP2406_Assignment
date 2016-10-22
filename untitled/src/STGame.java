@@ -49,17 +49,26 @@ public class STGame {
     public STPlayer getHumPlayer(){
         return players[yourPlayerId];
     }
-//    private int getNumPlayers(){ return numPlayers}
-    public void playTheGame(){
-        boolean gameIsOn = true;
 
-//        while(gameIsOn) {
-//            Players players = numPlayers.values().toArray(new Players[numPlayers.size()]);
-//            String[] playerNames = numPlayers.keySet().toArray(new String[numPlayers.size()]);
-//            for(int idxPlayer = 0; idxPlayer < players.length; idxPlayer++){
-//            }
-        }
+//    public int getNumPlayers(){ return numPlayers}
+    public void playTheGame() {
 
-    public void validCardToPlay(STCard card) {
+    }
+
+    public boolean validCardToPlay(STCard card) {
+        return true;
+    }
+
+    public boolean playCard(STCard card) {
+        //play card by human
+        //loop over the rest of bots
+        STMainGUI.mainUI.reload();
+        //and wait 1 sec
+        return true;
+
+    }
+
+    public void setCurrentCard(STCard card) {
+
     }
 }
