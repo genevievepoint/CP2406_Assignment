@@ -13,13 +13,13 @@ public class CardView extends JPanel{
 
 //        card.getImage();
 
-//        addMouseListener(new MouseInputAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                super.mouseClicked(e);
-//
-//                STGame.currGame.validCardToPlay(card);
-//                cardName.setText("I was clicked");
+        addMouseListener(new MouseInputAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                STGame.currGame.validCardToPlay(card);
+                cardName.setText("I was clicked");
         addMouseListener(new MyMouse());
             }
 //        });
@@ -28,13 +28,13 @@ public class CardView extends JPanel{
 
 //        Load images
 
-    class MyMouse extends MouseInputAdapter{
+    class MyMouse extends MouseInputAdapter {
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
 
             STGame game = STGame.currGame;
             boolean ok = STGame.currGame.validCardToPlay(card);
-            if (!ok){
+            if (!ok) {
                 cardName.setText("Not OK to play");
             }
 
@@ -52,5 +52,6 @@ public class CardView extends JPanel{
 //        remove card from player
 
     }
-
-    }
+        })
+    ;
+}}

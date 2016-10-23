@@ -50,7 +50,9 @@ public class STGame {
         return players[yourPlayerId];
     }
 
-//    public int getNumPlayers(){ return numPlayers}
+    public int getNumPlayers(){
+        return numPlayers;
+    }
     public void playTheGame() {
 
     }

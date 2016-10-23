@@ -4,9 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Genevieve on 22-Oct-16.
- */
+
 public class STMainGUI extends JFrame {
  
     public static STMainGUI mainUI;
@@ -15,8 +13,8 @@ public class STMainGUI extends JFrame {
     JTextField answer = new JTextField(10);
     JButton pressMe = new JButton("NEW GAME");
     JLabel greeting = new JLabel("");
-    final int WIDTH = 275;
-    final int HEIGHT = 225;
+    final int WIDTH = 500;
+    final int HEIGHT = 500;
 
     private STGame game;
     PlayerView playerView;
@@ -30,10 +28,10 @@ public class STMainGUI extends JFrame {
         super("Super Trumps Game");
         mainUI = this;
         setSize(WIDTH, HEIGHT);
-//        setLayout(new FlowLayout());
         question.setFont(bigFont);
         greeting.setFont(bigFont);
-        JPanel panel1 = new JPanel();
+        final JPanel panel1 = new JPanel();
+
         panel1.add(question);
         panel1.add(answer);
         add(panel1, BorderLayout.NORTH);
@@ -47,22 +45,16 @@ public class STMainGUI extends JFrame {
         pressMe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ////Todo get number of players from textfield
+                remove(pressMe);
+                remove(panel1);
+                revalidate();
+                repaint();
 
-                game = new STGame(3);
-//                game.startNewGame();
-
-
-                game.selectDealer();
-                game.dealRandomCardsToEachPlayer();
-
-                game.selectYouAsPlayer();
-                reload();
-
-//                How to trigger repaint
+                String textFieldValue = answer.getText();
+                int numOfPlayers = Integer.parseInt(textFieldValue);
 
 
-                System.out.println("WHAAAATTTT");
+                System.out.println("WHAAAATTTT!!!");
             }
         });
 //        pressMe.addActionListener(new MyActivateButton());
