@@ -10,7 +10,7 @@ public class STDeck {
     private ArrayList<STCard> cards;
 
     STDeck(){
-        cards = new ArrayList<STCard>();
+        cards = new ArrayList<>();
 
         for (int i = 0; i < NUM_CARDS_INIT; i++) {
              cards.add(new STCard(i));
@@ -18,7 +18,7 @@ public class STDeck {
     }
 
     public ArrayList<STCard> dealCards(int nCards){
-        ArrayList<STCard> ret = new ArrayList<STCard>();
+        ArrayList<STCard> ret = new ArrayList<>();
         for (int i = 0; i < nCards; i++) {
             int idx = new Random().nextInt(cards.size());
             STCard card = cards.remove(idx);

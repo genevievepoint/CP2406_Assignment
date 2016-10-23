@@ -13,6 +13,18 @@ public class CP2406A1 {
 
     public static void main(String[] args)
     {
+
+        // import XML
+        boolean isRead ;
+
+        // returns true if read the xml file correctly
+        // parameters true=> displays the imported file
+        isRead = ImportXML.readCardsDetails(true) ;
+
+        // displays the input array
+        System.out.println(ImportXML.myCardsPackMain[2].title);
+
+
         showWelcome();
         menu();
         int opt = getUserMenuChoice();
@@ -30,15 +42,6 @@ public class CP2406A1 {
             }
         }
 
-        // import XML
-        boolean isRead ;
-
-        // returns true if read the xml file correctly
-        // parameters true=> displays the imported file
-        isRead = ImportXML.readCardsDetails(true) ;
-
-        // displays the input array
-//        System.out.println(ImportXML.myCardsPackMain[2].title);
 
     }
 

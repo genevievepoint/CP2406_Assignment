@@ -2,9 +2,6 @@ import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * Created by Genevieve on 22-Oct-16.
- */
 public class CardView extends JPanel{
     final STCard card;
     JLabel cardName;
