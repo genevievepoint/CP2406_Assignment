@@ -13,8 +13,8 @@ public class STMainGUI extends JFrame {
     JTextField answer = new JTextField(10);
     JButton pressMe = new JButton("NEW GAME");
     JLabel greeting = new JLabel("");
-    final int WIDTH = 500;
-    final int HEIGHT = 500;
+    final int WIDTH = 800;
+    final int HEIGHT = 800;
 
     private STGame game;
     PlayerView playerView;
@@ -31,7 +31,8 @@ public class STMainGUI extends JFrame {
         question.setFont(bigFont);
         greeting.setFont(bigFont);
         final JPanel panel1 = new JPanel();
-
+        panel1.setBackground(new Color(0,120,0));
+        getContentPane().setBackground(new Color(0,153,0));
         panel1.add(question);
         panel1.add(answer);
         add(panel1, BorderLayout.NORTH);
@@ -41,6 +42,8 @@ public class STMainGUI extends JFrame {
         pressMe.setToolTipText("I do not have any info, sorry");
         add(greeting, BorderLayout.EAST);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
 
         pressMe.addActionListener(new ActionListener() {
             @Override

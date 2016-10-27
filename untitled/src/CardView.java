@@ -8,7 +8,7 @@ public class CardView extends JPanel{
 
     public CardView(final STCard card){
         this.card = card;
-        cardName = new JLabel(cardName.getName() + " id" + card.getId());
+//        cardName = new JLabel(cardName.getName() + " id" + card.());
         add(cardName);
 
 //        card.getImage();
@@ -38,7 +38,7 @@ public class CardView extends JPanel{
                 cardName.setText("Not OK to play");
             }
 
-            game.getHumPlayer().getCards().remove(card);
+//            game.getHumPlayer().getCards().remove(card);
 //            game.setCurrentCard(card);
 
             STMainGUI.mainUI.reload();

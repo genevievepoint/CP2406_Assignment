@@ -9,12 +9,13 @@ public class STDeck {
     private static final int NUM_CARDS_INIT = 60;
     private ArrayList<STCard> cards;
 
-    STDeck(){
-        cards = new ArrayList<>();
+    public STDeck(){
+        cards = new ArrayList<STCard>();
+//        ArrayList<String>  = new ArrayList<String>();
 
-        for (int i = 0; i < NUM_CARDS_INIT; i++) {
-             cards.add(new STCard(i));
-        }
+//        for (int i = 0; i < NUM_CARDS_INIT; i++) {
+//             cards.add(new STCard(i));
+//        }
     }
 
     public ArrayList<STCard> dealCards(int nCards){
@@ -27,14 +28,5 @@ public class STDeck {
         }
         return ret;
     }
-
-//    public Card drawFromDeck(){
-//        return cards.remove(0);
-//    }
-
-    public int getTotalCards(){
-        return cards.size();
-    }
-
 
 }

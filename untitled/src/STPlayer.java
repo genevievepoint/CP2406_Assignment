@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class STPlayer {
-    private ArrayList<STCard> cards;
+    public ArrayList<STCard> cards = new ArrayList<STCard>();
     private String playerId;
 
     public STPlayer(String playerId){
@@ -12,12 +12,9 @@ public class STPlayer {
         this.cards = cards;
     }
 
-    public ArrayList<STCard> getCards() {
-        return cards;
-    }
-
+    @Override
     public String toString(){
-        return "PlayedID= " + playerId + "\n cards=" + cards;
+        return playerId;
     }
 
 
