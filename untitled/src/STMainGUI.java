@@ -6,77 +6,92 @@ import java.awt.event.ActionListener;
 
 
 public class STMainGUI extends JFrame {
+    // JFrame properties
+    final int WIDTH = 1200;
+    final int HEIGHT = 700;
+    STGame game;
 
-    public static STMainGUI mainUI;
-    JLabel question = new JLabel("Number of players");
-    Font bigFont = new Font ("Arial", Font.BOLD, 16);
+    Container con = this.getContentPane();
+    JPanel welcomePanel = new JPanel();
+    JPanel playPanel = new JPanel();
+
+    //Labels
+    JLabel question = new JLabel("Enter the Players");
     JTextField answer = new JTextField(10);
-    JButton pressMe = new JButton("NEW GAME");
-    JLabel greeting = new JLabel("");
-    final int WIDTH = 1000;
-    final int HEIGHT = 600;
+    // Buttons
+    JButton newGameBtn = new JButton("START A NEW GAME");
 
-    private STGame game;
-    PlayerView playerView;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         STMainGUI frame = new STMainGUI();
         frame.setVisible(true);
     }
 
-    public STMainGUI(){
-        super("Super Trumps Game");
-        mainUI = this;
+    public STMainGUI() {
+        //title,size and layout of the JFrame
+        super("THE MINERAL SUPER TRUMP GAME");
         setSize(WIDTH, HEIGHT);
-        question.setFont(bigFont);
-        greeting.setFont(bigFont);
-        final JPanel panel1 = new JPanel();
-        panel1.setBackground(new Color(0,120,0));
-        getContentPane().setBackground(new Color(0,153,0));
-        panel1.add(question);
-        panel1.add(answer);
-        add(panel1, BorderLayout.NORTH);
-//        add(question, BorderLayout.NORTH);
-//        add(answer, BorderLayout.WEST);
-        add(pressMe, BorderLayout.SOUTH);
-        pressMe.setToolTipText("I do not have any info, sorry");
-        add(greeting, BorderLayout.EAST);
+
+        //welcome label font size
+
+        //container and set properties
+        con.setLayout(new FlowLayout());
+        con.setBackground(new Color(0, 155, 0));
+
+        getNumberOfPlayers();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+    }
 
+    private void getNumberOfPlayers() {
+        //New Panel properties
 
-        pressMe.addActionListener(new ActionListener() {
-            @Override
+        welcomePanel.setLayout(new GridLayout());
+        welcomePanel.setBackground(new Color(0, 156, 0));
+        con.add(welcomePanel);
+
+        welcomePanel.add(question);
+        welcomePanel.add(answer);
+
+        String numOfPlayers = answer.getText();
+
+        //Adding new game button to the Panel and its action
+        welcomePanel.add(newGameBtn);
+
+        newGameBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                remove(pressMe);
-                remove(panel1);
-                revalidate();
-                repaint();
+                con.remove(welcomePanel);
+                con.revalidate();
+                con.repaint();
 
-                String textFieldValue = answer.getText();
-                int numOfPlayers = Integer.parseInt(textFieldValue);
-                game = new STGame(5);
-                game.selectDealer();
-                game.dealRandomCardsToEachPlayer();
-                STPlayer humanPlayer = game.getHumPlayer();
-                PlayerView view = new PlayerView(0);
-                add(view,BorderLayout.CENTER);
-
-                // System.out.println("WHAAAATTTT!!!");
+                playTheGame();
             }
         });
-//        pressMe.addActionListener(new MyActivateButton());
-
     }
 
-    public void reload() {
-        if (playerView != null){
-            remove(playerView);
-        }
-//        todo: add panel currentCardView
-        STPlayer humanPlayer = game.getHumPlayer();
+    private void playTheGame() {
+        playPanel.setBackground(new Color(0, 156, 0));
+        playPanel.setLayout(new FlowLayout());
+        con.add(playPanel);
 
-        playerView = new PlayerView(humanPlayer);
-        add(playerView, BorderLayout.CENTER);
+        int numOfPlayers = Integer.parseInt(answer.getText());
+
+        JLabel playersLabel = new JLabel("Number of players are " + numOfPlayers);
+        playPanel.add(playersLabel);
+
+        STGame game = new STGame(numOfPlayers);
+        JLabel dealerLabel = new JLabel("The Dealer is " +  game.selectDealer());
+        playPanel.add(dealerLabel);
+
+        JLabel nextPlayer = new JLabel("Next Player is "+ game.getNextPlayerID());
+        playPanel.add(nextPlayer);
+
+        game.dealRandomCardsToEachPlayer(); // randomly deal 8 cards to each player
+        game.selectYouAsPlayer(); // show user player id
+        STPlayer humPlayer = game.getHumPlayer();
+
+
+        JLabel userPlayer = new JLabel(String.valueOf(humPlayer));
+        con.add(userPlayer);
     }
+
 }

@@ -86,12 +86,12 @@ public class PlayerView extends JPanel {
 //            cards.add(new STCard(i, "The Geologist", "T", "Change to trumps category of your choice"));
 //        }
 //    }}
-            STCard card = cards.get(i);
-            CardView cardView = new CardView(card);
-            System.out.println("new card i = " + i);
-            add(cardView);
+//            STCard card = cards.get(i);
+//            CardView cardView = new CardView(card);
+//            System.out.println("new card i = " + i);
+//            add(cardView);
         }
-
-        repaint();
+//
+//        repaint();
     }
 }

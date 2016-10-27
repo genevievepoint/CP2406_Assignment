@@ -1,13 +1,15 @@
 /**
  * Created by Genevieve on 03-Oct-16.
  */
-/**
- *
- * Card Details
- */
+
+import javax.swing.*;
+import java.awt.*;
+
 
 public class CardDetails{
 
+    private static final int CARD_WIDTH = 180;
+    private static final int CARD_HEIGHT = 260;
     public String fileName ;
     public String imageName ;
     public String cardType ;
@@ -54,28 +56,34 @@ public class CardDetails{
         }
     }
 
-
-    public void displayAll()
-    {
-        System.out.println( "File Name :\t\t" +        fileName ) ;
-        System.out.println( "Image Name :\t\t" +       imageName ) ;
-        System.out.println( "Card Type :\t\t" +        cardType ) ;
-        System.out.println( "Title :\t\t" +            title ) ;
-        System.out.println( "Chemistry :\t\t" +        chemistry    ) ;
-        System.out.println( "Classification :\t\t" +   classification ) ;
-        System.out.println( "CrystalSystem :\t\t" +    crystalSystem ) ;
-        System.out.println( "Occurrence :\t\t" +       occurrence) ;
-        System.out.println( "Hardness  :\t\t" +        hardness ) ;
-        System.out.println( "Specific Gravity :\t\t" + specificGravity ) ;
-        System.out.println( "Cleavage :\t\t" +         cleavage ) ;
-        System.out.println( "Crustal Abundance :\t\t"+ crustalAbundance ) ;
-        System.out.println( "Economic Value :\t\t" +   economicValue ) ;
-        System.out.println( "Sub Title  :\t\t" +       subTitle ) ;
+    public ImageIcon getCardBottomImage(){
+        ImageIcon img = new ImageIcon("images\\" + this.imageName + ".jpg");
+        return new ImageIcon(img.getImage().getScaledInstance(CARD_WIDTH,CARD_HEIGHT, Image.SCALE_SMOOTH));
+    }
+    public void setImageName(String imageName){
+        this.imageName = imageName;
     }
 
 
-    public boolean isCategoryHigher( int pCategoryNumber, double pCurrentValue  )
-    {
+//    public void displayAll() {
+//        System.out.println( "File Name :\t\t" +        fileName ) ;
+//        System.out.println( "Image Name :\t\t" +       imageName ) ;
+//        System.out.println( "Card Type :\t\t" +        cardType ) ;
+//        System.out.println( "Title :\t\t" +            title ) ;
+//        System.out.println( "Chemistry :\t\t" +        chemistry    ) ;
+//        System.out.println( "Classification :\t\t" +   classification ) ;
+//        System.out.println( "CrystalSystem :\t\t" +    crystalSystem ) ;
+//        System.out.println( "Occurrence :\t\t" +       occurrence) ;
+//        System.out.println( "Hardness  :\t\t" +        hardness ) ;
+//        System.out.println( "Specific Gravity :\t\t" + specificGravity ) ;
+//        System.out.println( "Cleavage :\t\t" +         cleavage ) ;
+//        System.out.println( "Crustal Abundance :\t\t"+ crustalAbundance ) ;
+//        System.out.println( "Economic Value :\t\t" +   economicValue ) ;
+//        System.out.println( "Sub Title  :\t\t" +       subTitle ) ;
+//    }
+
+
+    public boolean isCategoryHigher( int pCategoryNumber, double pCurrentValue  ) {
         boolean myFound = false ;
         switch (pCategoryNumber)
         {
@@ -94,8 +102,7 @@ public class CardDetails{
 
 
     // Search for a character and returns the rest
-    public static String findRest( String pString, String pFindChar )
-    {
+    public static String findRest( String pString, String pFindChar ) {
         int myFound = -1 ;
         String myRest ;
 
@@ -112,4 +119,6 @@ public class CardDetails{
     }
 
 
+    public void displayAll() {
+    }
 }

@@ -43,7 +43,7 @@ public class ImportXML
 //                 " Element : " + myNode.getNodeName()
                 if ( pDisplay )
                 {
-//                    System.out.println( i+1 );
+                    System.out.println( i+1 );
                 }
 
                 if ( myNode.getNodeType() == Node.ELEMENT_NODE )

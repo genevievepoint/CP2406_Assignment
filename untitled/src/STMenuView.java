@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Random;
 
-/**
- * Created by Genevieve on 27-Oct-16.
- */
 public class STMenuView {
 
     private JFrame frame;
@@ -81,26 +78,26 @@ public class STMenuView {
         frame.add(panel);
         frame.revalidate();
 }
-    public static void aiPlayCard() {
-        Random rand = new Random();
-//        PLAYERCOUNT ++;
-        if (rand.nextInt(10) < 5) {
-            JOptionPane.showMessageDialog(null, "Computer Can play a card");
-            STCard aiCard = game.players[1].cards.remove(rand.nextInt(game.players[1].cards.size()));
-            if (STMenuView.game.players[1].cards.size() == 0) {
-                JOptionPane.showMessageDialog(null, "COMPUTER WINS!");
-                System.exit(1);
-            }
-            try {
-                CardImg card3 = new CardImg(aiCard);
-                CardTable.currCardView.setIcon(new ImageIcon(card3.cardImage));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
-        else {JOptionPane.showMessageDialog(null, "Computer Cannot play a card");
+//    public static void aiPlayCard() {
+//        Random rand = new Random();
+////        PLAYERCOUNT ++;
+//        if (rand.nextInt(10) < 5) {
+//            JOptionPane.showMessageDialog(null, "Computer Can play a card");
+//            STCard aiCard = game.players[1].cards.remove(rand.nextInt(game.players[1].cards.size()));
+//            if (STMenuView.game.players[1].cards.size() == 0) {
+//                JOptionPane.showMessageDialog(null, "COMPUTER WINS!");
+//                System.exit(1);
+//            }
+//            try {
+//                CardImg card3 = new CardImg(aiCard);
+//                CardTable.currCardView.setIcon(new ImageIcon(card3.cardImage));
+//            } catch (IOException e1) {
+//                e1.printStackTrace();
+//            }
+//        }
+//        else {JOptionPane.showMessageDialog(null, "Computer Cannot play a card");
+//
+//        }
 
-        }
-
-    }
+//    }
 }
