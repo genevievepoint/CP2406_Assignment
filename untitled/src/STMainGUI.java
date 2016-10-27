@@ -6,15 +6,15 @@ import java.awt.event.ActionListener;
 
 
 public class STMainGUI extends JFrame {
- 
+
     public static STMainGUI mainUI;
     JLabel question = new JLabel("Number of players");
     Font bigFont = new Font ("Arial", Font.BOLD, 16);
     JTextField answer = new JTextField(10);
     JButton pressMe = new JButton("NEW GAME");
     JLabel greeting = new JLabel("");
-    final int WIDTH = 800;
-    final int HEIGHT = 800;
+    final int WIDTH = 1000;
+    final int HEIGHT = 600;
 
     private STGame game;
     PlayerView playerView;
@@ -55,9 +55,14 @@ public class STMainGUI extends JFrame {
 
                 String textFieldValue = answer.getText();
                 int numOfPlayers = Integer.parseInt(textFieldValue);
+                game = new STGame(5);
+                game.selectDealer();
+                game.dealRandomCardsToEachPlayer();
+                STPlayer humanPlayer = game.getHumPlayer();
+                PlayerView view = new PlayerView(0);
+                add(view,BorderLayout.CENTER);
 
-
-                System.out.println("WHAAAATTTT!!!");
+                // System.out.println("WHAAAATTTT!!!");
             }
         });
 //        pressMe.addActionListener(new MyActivateButton());

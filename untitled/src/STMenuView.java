@@ -21,8 +21,6 @@ public class STMenuView {
 
     public STMenuView() {
 
-
-
         frame = new JFrame("SUPER TRUMPS CARD GAME");
         frame.setVisible(true);
         frame.setSize(500, 500);
@@ -47,23 +45,23 @@ public class STMenuView {
             frame2.add(panel2);
         }
     });
-//    playGameButton = new JButton("Play Game");
-//        playGameButton.addActionListener(new ActionListener() {
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//
-//            game.selectDealer();
-//            game.dealRandomCards();
-//            game.setHumPlayer();
-//            try {
-//                GameGuiFrame gameGuiFrame = new GameGuiFrame(game.players);
-//            } catch (IOException e1) {
-//                e1.printStackTrace();
-//            }
-//            //game logic
-//        }
-//
-//    });
+    playGameButton = new JButton("Play Game");
+        playGameButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            game.selectDealer();
+            game.dealRandomCards();
+            game.setHumPlayer();
+            try {
+                GameGuiFrame gameGuiFrame = new GameGuiFrame(game.players);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            //game logic
+        }
+
+    });
     JLabel numberOfPlayersString = new JLabel("Select the number of players");
         selectPlayers.addActionListener(new ActionListener() {
         @Override
@@ -83,26 +81,26 @@ public class STMenuView {
         frame.add(panel);
         frame.revalidate();
 }
-//    public static void aiPlayCard() {
-//        Random rand = new Random();
-////        PLAYERCOUNT ++;
-//        if (rand.nextInt(10) < 5) {
-//            JOptionPane.showMessageDialog(null, "Computer Can play a card");
-//            STCard aiCard = game.players[1].cards.remove(rand.nextInt(game.players[1].cards.size()));
-//            if (STMenuView.game.players[1].cards.size() == 0) {
-//                JOptionPane.showMessageDialog(null, "COMPUTER WINS!");
-//                System.exit(1);
-//            }
-//            try {
-//                ShowCardImg card3 = new ShowCardImg(aiCard);
-//                CardTable.currCardView.setIcon(new ImageIcon(card3.cardImage));
-//            } catch (IOException e1) {
-//                e1.printStackTrace();
-//            }
-//        }
-//        else {JOptionPane.showMessageDialog(null, "Computer Cannont play a card");
-//
-//        }
+    public static void aiPlayCard() {
+        Random rand = new Random();
+//        PLAYERCOUNT ++;
+        if (rand.nextInt(10) < 5) {
+            JOptionPane.showMessageDialog(null, "Computer Can play a card");
+            STCard aiCard = game.players[1].cards.remove(rand.nextInt(game.players[1].cards.size()));
+            if (STMenuView.game.players[1].cards.size() == 0) {
+                JOptionPane.showMessageDialog(null, "COMPUTER WINS!");
+                System.exit(1);
+            }
+            try {
+                CardImg card3 = new CardImg(aiCard);
+                CardTable.currCardView.setIcon(new ImageIcon(card3.cardImage));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+        else {JOptionPane.showMessageDialog(null, "Computer Cannot play a card");
+
+        }
 
     }
-//}
+}

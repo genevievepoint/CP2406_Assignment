@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class CP2406A1 {
-    
+
     private static STGame game = new STGame();
     public static int currentPlayer = game.dealerID + 1;
 
@@ -32,7 +32,7 @@ public class CP2406A1 {
             case 1: {
                 startNewGame();
                 break;
-        }
+            }
             case 2 :{
                 instructions();
                 menu();
@@ -125,10 +125,10 @@ public class CP2406A1 {
         Scanner userInput = new Scanner(System.in);
         int numChoice = userInput.nextInt();
         while (numChoice != 2 && numChoice != 3 && numChoice != 4) {
-                System.out.println("How many players> ");
-                numChoice = userInput.nextInt();
-            }
-            return numChoice;
+            System.out.println("How many players> ");
+            numChoice = userInput.nextInt();
+        }
+        return numChoice;
     }
 
 
@@ -168,4 +168,4 @@ public class CP2406A1 {
     }
 
 
-    }
+}

@@ -1,18 +1,22 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class PlayerView extends JPanel{
+public class PlayerView extends JPanel {
 
     private static final int NUM_OF_PLAYER_CARDS = 60;
     STPlayer player;
     JLabel playerName = new JLabel("Not Set");
 
-    public PlayerView(STPlayer player){
+    public PlayerView(STPlayer player) {
         this.player = player;
 
         add(playerName);
 
         addAllCards();
+    }
+
+    public PlayerView(int i) {
+        this.player = player;
     }
 
     private void addAllCards() {
@@ -80,16 +84,14 @@ public class PlayerView extends JPanel{
 //            cards.add(new STCard(i, "The Mineralogist", "T", "Cleavage"));
 //            cards.add(new STCard(i, "The Geophysicist", "T", "Specific gravity"));
 //            cards.add(new STCard(i, "The Geologist", "T", "Change to trumps category of your choice"));
-    }
-    }}
-
-//        for (int i = 0; i < cards.size(); i++){
-//            STCard card = cards.get(i);
-//            CardView cardView = new CardView(card);
-//            System.out.println("new card i = " + i);
-//            add(cardView);
 //        }
-//
-//        repaint();
-//    }
-//}
+//    }}
+            STCard card = cards.get(i);
+            CardView cardView = new CardView(card);
+            System.out.println("new card i = " + i);
+            add(cardView);
+        }
+
+        repaint();
+    }
+}

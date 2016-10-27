@@ -3,6 +3,7 @@ public class STCard {
     private int id;
     private String title;
     private String type;
+    public String fileName;
 
     public STCard(int id,String title,String type){
         this.id = id;
@@ -14,9 +15,9 @@ public class STCard {
         return "\nid ="+id+" title = "+title+ "    type = " + type;
     }
 
-    public String getCategory(String categoryInPlay) {
-        return getCategory(categoryInPlay);
-    }
+//    public String getCategory(String categoryInPlay) {
+//        return getCategory(categoryInPlay);
+//    }
 }
 
 //import java.util.ArrayList;

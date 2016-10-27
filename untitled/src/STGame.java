@@ -24,8 +24,7 @@ public class STGame {
 
         currGame = this;
     }
-
-    public STGame() {
+    public STGame(){
 
     }
 
