@@ -86,103 +86,103 @@ public class STGame {
         humanPlayerID = 0;
     }
 
-    public void AiTakeTurn(){
-        int aiChoice;
-        STPlayer aiPlayer = players[CP2406A1.currentPlayer];
-        int aiCount = aiPlayer.cards.size();
-
-        if (categoryInPlay == null){
-            categoryInPlay = aiChoosesCategory();
-        }
-        if (cardInPlay == null){
-            Random rand = new Random();
-            cardInPlay = aiPlayer.cards.remove(rand.nextInt(aiPlayer.cards.size() - 1));
-        }
-        if (aiPlayer.cards.size() == 0){
-            System.out.println("AI Won!");
-            System.out.println(finishGame());
-        }
-        else{
-            for (int i = 0; i < aiPlayer.cards.size(); i++){
-                aiChoice = i;
-                if (aiPlayer.cards.get(aiChoice).getCategory(categoryInPlay) < cardInPlay.getCategory(categoryInPlay)) {
-                    System.out.println("AI checking cards in play");
-                    aiCount--;
-                    if (aiCount == 0){
-                        System.out.println("AI cannot play a card");
-                        System.out.println("AI picking up a card");
-                        STCard extraCard = deck.dealCards(1).remove(0);
-                        aiPlayer.cards.add(extraCard);
-                        break;
-                    }
-                }
-                else{
-                    STCard selectedCard = aiPlayer.cards.remove(aiChoice);
-                    System.out.println("AI selecting a card to play \n");
-                    System.out.println("AI's choice is: " + selectedCard);
-                    cardInPlay = selectedCard;
-                    break;
-                }
-            }
-        }
-    }
-    public int humPlayerTakeTurn(){
-        int choice = 0;
-        if (categoryInPlay == null) {
-            Scanner cardCat = new Scanner(System.in);
-            System.out.println("Enter Card Category");
-            categoryChoice = cardCat.nextLine();
-            boolean choiceError = true;
-            while (choiceError) {
-                choiceError = checkCardCategory(categoryChoice);
-                if (choiceError) {
-                    System.out.println("Enter Card Category");
-                    categoryChoice = cardCat.nextLine();
-                }
-            }
-            categoryInPlay = categoryChoice;
-        }
-        Scanner userInput = new Scanner(System.in);
-        if (cardInPlay == null) {
-            System.out.println("Human Select a card to play\n");
-            choice = userInput.nextInt() - 1;
-        }
-        if (cardInPlay != null) {
-            if (isTrumpCard(choice)) {
-                if (cardInPlay.getTitle().equals("The Miner")) {
-                    categoryInPlay = "Economic value";
-                }
-                if (cardInPlay.getTitle().equals("The Petrologist")) {
-                    categoryInPlay = "Crustal abundance";
-                }
-                if (cardInPlay.getTitle().equals("The Mineralogist")) {
-                    categoryInPlay = "Cleavage";
-                }
-                if (cardInPlay.getTitle().equals("The Geophysicist")) {
-                    categoryInPlay = "Specific Gravity";
-                } else {
-                    categoryInPlay = categoryChoice;
-                }
-            }
-            System.out.println("Human Select a card to play\n");
-            choice = userInput.nextInt() - 1;
-            boolean errorInCard = true;
-            while (errorInCard) {
-                errorInCard = checkIfCardCanBePlayed(choice);
-                if (errorInCard) {
-                    System.out.println("Error in card");
-                    System.out.println("Human select a Card to play");
-                    choice = userInput.nextInt() - 1;
-                }
-            }
-        }
-        cardInPlay = players[0].cards.remove(choice);//removes users card they just played
-
-        if (players[0].cards.size() == 0) {// if player has 0 cards, the game is finished and the player wins
-            System.out.println(finishGame());
-        }
-        return choice;
-    }
+//    public void AiTakeTurn(){
+//        int aiChoice;
+//        STPlayer aiPlayer = players[CP2406A1.currentPlayer];
+//        int aiCount = aiPlayer.cards.size();
+//
+//        if (categoryInPlay == null){
+//            categoryInPlay = aiChoosesCategory();
+//        }
+//        if (cardInPlay == null){
+//            Random rand = new Random();
+//            cardInPlay = aiPlayer.cards.remove(rand.nextInt(aiPlayer.cards.size() - 1));
+//        }
+//        if (aiPlayer.cards.size() == 0){
+//            System.out.println("AI Won!");
+//            System.out.println(finishGame());
+//        }
+//        else{
+//            for (int i = 0; i < aiPlayer.cards.size(); i++){
+//                aiChoice = i;
+//                if (aiPlayer.cards.get(aiChoice).getCategory(categoryInPlay) < cardInPlay.getCategory(categoryInPlay)) {
+//                    System.out.println("AI checking cards in play");
+//                    aiCount--;
+//                    if (aiCount == 0){
+//                        System.out.println("AI cannot play a card");
+//                        System.out.println("AI picking up a card");
+//                        STCard extraCard = deck.dealCards(1).remove(0);
+//                        aiPlayer.cards.add(extraCard);
+//                        break;
+//                    }
+//                }
+//                else{
+//                    STCard selectedCard = aiPlayer.cards.remove(aiChoice);
+//                    System.out.println("AI selecting a card to play \n");
+//                    System.out.println("AI's choice is: " + selectedCard);
+//                    cardInPlay = selectedCard;
+//                    break;
+//                }
+//            }
+//        }
+//    }
+//    public int humPlayerTakeTurn(){
+//        int choice = 0;
+//        if (categoryInPlay == null) {
+//            Scanner cardCat = new Scanner(System.in);
+//            System.out.println("Enter Card Category");
+//            categoryChoice = cardCat.nextLine();
+//            boolean choiceError = true;
+//            while (choiceError) {
+//                choiceError = checkCardCategory(categoryChoice);
+//                if (choiceError) {
+//                    System.out.println("Enter Card Category");
+//                    categoryChoice = cardCat.nextLine();
+//                }
+//            }
+//            categoryInPlay = categoryChoice;
+//        }
+//        Scanner userInput = new Scanner(System.in);
+//        if (cardInPlay == null) {
+//            System.out.println("Human Select a card to play\n");
+//            choice = userInput.nextInt() - 1;
+//        }
+//        if (cardInPlay != null) {
+//            if (isTrumpCard(choice)) {
+//                if (cardInPlay.getTitle().equals("The Miner")) {
+//                    categoryInPlay = "Economic value";
+//                }
+//                if (cardInPlay.getTitle().equals("The Petrologist")) {
+//                    categoryInPlay = "Crustal abundance";
+//                }
+//                if (cardInPlay.getTitle().equals("The Mineralogist")) {
+//                    categoryInPlay = "Cleavage";
+//                }
+//                if (cardInPlay.getTitle().equals("The Geophysicist")) {
+//                    categoryInPlay = "Specific Gravity";
+//                } else {
+//                    categoryInPlay = categoryChoice;
+//                }
+//            }
+//            System.out.println("Human Select a card to play\n");
+//            choice = userInput.nextInt() - 1;
+//            boolean errorInCard = true;
+//            while (errorInCard) {
+//                errorInCard = checkIfCardCanBePlayed(choice);
+//                if (errorInCard) {
+//                    System.out.println("Error in card");
+//                    System.out.println("Human select a Card to play");
+//                    choice = userInput.nextInt() - 1;
+//                }
+//            }
+//        }
+//        cardInPlay = players[0].cards.remove(choice);//removes users card they just played
+//
+//        if (players[0].cards.size() == 0) {// if player has 0 cards, the game is finished and the player wins
+//            System.out.println(finishGame());
+//        }
+//        return choice;
+//    }
 
 
     protected static void printCards(STPlayer player){
@@ -209,30 +209,30 @@ public class STGame {
         return true;
     }
 
-    public boolean checkIfCardCanBePlayed(int choice) {
-
-        if (choice == 100) {// enter 101 to skip turn
-            skipTurn();
+//    public boolean checkIfCardCanBePlayed(int choice) {
+//
+//        if (choice == 100) {// enter 101 to skip turn
+//            skipTurn();
+////            return false;
+//        }
+//        if (players[0].cards.size() <= choice || choice < 0) {
+//            System.out.println("Cannot play this card, the card number is out of range");
+//            return true;
+//        }
+//        if (isTrumpCard(choice)) {
 //            return false;
-        }
-        if (players[0].cards.size() <= choice || choice < 0) {
-            System.out.println("Cannot play this card, the card number is out of range");
-            return true;
-        }
-        if (isTrumpCard(choice)) {
-            return false;
-        }
-        if (players[0].cards.get(choice).getCategory(categoryInPlay) <= cardInPlay.getCategory(categoryInPlay)) {
-            System.out.println("Cannot play this card, the card category value is too low");
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isTrumpCard(int choice) {
-        STCard card = players[0].cards.get(choice);
-        return card.getCardType().equals("trump");
-    }
+//        }
+//        if (players[0].cards.get(choice).getCategory(categoryInPlay) <= cardInPlay.getCategory(categoryInPlay)) {
+//            System.out.println("Cannot play this card, the card category value is too low");
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean isTrumpCard(int choice) {
+//        STCard card = players[0].cards.get(choice);
+//        return card.getCardType().equals("trump");
+//    }
 
     public static void setNumPlayers(int numberOfPlayers) {
         numPlayers = numberOfPlayers;
@@ -248,11 +248,11 @@ public class STGame {
         return aiChoiceCat;
     }
 
-    public void skipTurn() {
-        System.out.println("Skipping Turn");
-        addCard();
-        CP2406A1.playTheGame();
-    }
+//    public void skipTurn() {
+//        System.out.println("Skipping Turn");
+//        addCard();
+//        CP2406A1.playTheGame();
+//    }
 
     public void addCard() {
         STCard extraCard = deck.dealCards(1).remove(0);

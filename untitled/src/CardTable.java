@@ -8,13 +8,13 @@ public class CardTable extends JPanel {
 
     public CardTable() throws IOException{
 
-//        super();
-//        setVisible(true);
-//        setLayout(new FlowLayout(FlowLayout.CENTER, 400, 200));
-//        setBackground(Color.BLUE);
+        super();
+        setVisible(true);
+        setLayout(new FlowLayout(FlowLayout.CENTER, 400, 200));
+        setBackground(Color.BLUE);
 //        CardView =  new JLabel("Current card");
-//        JLabel currCategory = new JLabel("Current category" + new SelectCategoryGUI().getCategory());
-//        add(currCategory);
+        JLabel currCategory = new JLabel("Current category" + new SelectCategoryGUI().getCategory());
+        add(currCategory);
 //        add(CardView);
 
     }

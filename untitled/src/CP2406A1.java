@@ -92,29 +92,29 @@ public class CP2406A1 {
 
     }
 
-    public static void playTheGame() {
-        //game logic
-        boolean gameIsOn = true;
-        int currentPlayer = game.dealerID + 1;
-//        System.out.println(game.cardInPlay = game.players[0].cards.get(0)); //remove once AI can play a card
-//        System.out.println(game.categoryInPlay = "Hardness"); testing code
-        while (gameIsOn) {
-            System.out.println();
-            if (currentPlayer > game.players.length -1) {
-                currentPlayer = 0;
-            }
-            if (currentPlayer == 0) {
-                System.out.println(game.players[0]);
-                game.printCards(game.players[0]);
-                System.out.println("\nCurrent Category is: " + game.categoryInPlay);
-                System.out.println("Current Card in play is: " + game.cardInPlay);
-                game.humPlayerTakeTurn();
-            } else {
-                game.AiTakeTurn();
-            }
-            currentPlayer += 1;
-        }
-    }
+//    public static void playTheGame() {
+//        //game logic
+//        boolean gameIsOn = true;
+//        int currentPlayer = game.dealerID + 1;
+////        System.out.println(game.cardInPlay = game.players[0].cards.get(0)); //remove once AI can play a card
+////        System.out.println(game.categoryInPlay = "Hardness"); testing code
+//        while (gameIsOn) {
+//            System.out.println();
+//            if (currentPlayer > game.players.length -1) {
+//                currentPlayer = 0;
+//            }
+//            if (currentPlayer == 0) {
+//                System.out.println(game.players[0]);
+//                game.printCards(game.players[0]);
+//                System.out.println("\nCurrent Category is: " + game.categoryInPlay);
+//                System.out.println("Current Card in play is: " + game.cardInPlay);
+//                game.humPlayerTakeTurn();
+//            } else {
+//                game.AiTakeTurn();
+//            }
+//            currentPlayer += 1;
+//        }
+//    }
 
     private static void showPlayer(STPlayer humPlayer){
         System.out.println("Human player=" + humPlayer);

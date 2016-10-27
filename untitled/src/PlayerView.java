@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-/**
- * Created by Genevieve on 22-Oct-16.
- */
 public class PlayerView extends JPanel{
 
     private static final int NUM_OF_PLAYER_CARDS = 60;
@@ -77,12 +74,12 @@ public class PlayerView extends JPanel{
             cards.add(new STCard(i, "Cassiterite", "P"));
             cards.add(new STCard(i, "Gibbsite", "P"));
             cards.add(new STCard(i, "Goethite", "P"));
-            cards.add(new STCard(i, "The Miner", "T", "Economic value"));
-            cards.add(new STCard(i, "The Petrologist", "T", "Crustal abundance"));
-            cards.add(new STCard(i, "The Gemmologist", "T", "Hardness"));
-            cards.add(new STCard(i, "The Mineralogist", "T", "Cleavage"));
-            cards.add(new STCard(i, "The Geophysicist", "T", "Specific gravity"));
-            cards.add(new STCard(i, "The Geologist", "T", "Change to trumps category of your choice"));
+//            cards.add(new STCard(i, "The Miner", "T", "Economic value"));
+//            cards.add(new STCard(i, "The Petrologist", "T", "Crustal abundance"));
+//            cards.add(new STCard(i, "The Gemmologist", "T", "Hardness"));
+//            cards.add(new STCard(i, "The Mineralogist", "T", "Cleavage"));
+//            cards.add(new STCard(i, "The Geophysicist", "T", "Specific gravity"));
+//            cards.add(new STCard(i, "The Geologist", "T", "Change to trumps category of your choice"));
     }
     }}
 

@@ -13,6 +13,10 @@ public class STCard {
     public String toString() {
         return "\nid ="+id+" title = "+title+ "    type = " + type;
     }
+
+    public String getCategory(String categoryInPlay) {
+        return getCategory(categoryInPlay);
+    }
 }
 
 //import java.util.ArrayList;
