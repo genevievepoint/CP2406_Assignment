@@ -5,9 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by Genevieve on 27-Oct-16.
- */
 public class CardImg extends JPanel{
     BufferedImage cardImage;
     String workingDirectory = System.getProperty("user.dir");
