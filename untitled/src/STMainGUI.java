@@ -70,20 +70,20 @@ public class STMainGUI extends JFrame {
 
     private void playTheGame() {
         playPanel.setBackground(new Color(0, 156, 0));
-        playPanel.setLayout(new FlowLayout());
+        playPanel.setLayout(new BorderLayout());
         con.add(playPanel);
 
         int numOfPlayers = Integer.parseInt(answer.getText());
 
         JLabel playersLabel = new JLabel("Number of players are " + numOfPlayers);
-        playPanel.add(playersLabel);
+        playPanel.add(playersLabel, BorderLayout.NORTH);
 
         STGame game = new STGame(numOfPlayers);
         JLabel dealerLabel = new JLabel("The Dealer is " +  game.selectDealer());
-        playPanel.add(dealerLabel);
+        playPanel.add(dealerLabel, BorderLayout.CENTER);
 
         JLabel nextPlayer = new JLabel("Next Player is "+ game.getNextPlayerID());
-        playPanel.add(nextPlayer);
+        playPanel.add(nextPlayer, BorderLayout.SOUTH);
 
         game.dealRandomCardsToEachPlayer(); // randomly deal 8 cards to each player
         game.selectYouAsPlayer(); // show user player id
@@ -91,7 +91,7 @@ public class STMainGUI extends JFrame {
 
 
         JLabel userPlayer = new JLabel(String.valueOf(humPlayer));
-        con.add(userPlayer);
+        con.add(userPlayer, BorderLayout.SOUTH);
     }
 
 }
