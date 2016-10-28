@@ -27,7 +27,7 @@ public class STGame {
 
     public int selectDealer() {
         Random rand = new Random();//randomly selecting a dealer
-        randomDealer = rand.nextInt((5 - 3)+1)+3;
+        randomDealer = rand.nextInt((numPlayers - 3)+1);
         //System.out.println("random dealer = " + randomDealer);
         // System.out.println("");
         return randomDealer;
